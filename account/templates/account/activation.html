@@ -1,0 +1,41 @@
+{% load i18n %}
+
+{% block subject %}
+{% blocktrans %} Account activation on {{ site_name }}{% endblocktrans %}
+{% endblock subject %}
+
+{% block text_body %}
+{% blocktrans %} You're receiving this email because you need to finish activation process on {{ site_name }}.{% endblocktrans %}
+
+{% trans "Please go to the following page to activate account:" %}
+{{ protocol }}://{{ domain }}/{{ url|safe }}
+
+<i>{% blocktrans %}If you face difficulties on account activation kindly contact us on: contact@geekyshows.com{% endblocktrans %}</i>
+
+{% endblock text_body %}
+
+{% block html_body %}
+<p>{% blocktrans %} You're receiving this email because you need to finish activation process on {{ site_name }}.{% endblocktrans %}</p>
+
+
+<p style="margin-bottom:100px"><a style="display: inline-block; padding: 10px 20px; background-color: red; color: white; text-decoration: none;" href="{{ protocol }}://{{ domain }}/{{ url|safe }}">Activate Account</a></p>
+
+<span>Follow us: </span>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <a href="#" style="margin: 5px; padding: 5px ; border-radius: 10%; background-color: #E1306C; color: white; text-decoration: none; font-size:10px">
+    Instagram
+  </a>
+  <a href="#" style="margin: 5px; padding: 5px ; border-radius: 10%; background-color: #1da1f2; color: white; text-decoration: none; font-size:10px">
+    Twitter
+  </a>
+  <a href="#" style="margin: 5px; padding: 5px ; border-radius: 10%; background-color: #0077B5; color: white; text-decoration: none; font-size:10px">
+    LinkedIn
+  </a>
+  <a href="#" style="margin: 5px; padding: 5px ; border-radius: 10%; background-color: #ff0000; color: white; text-decoration: none; font-size:10px">
+    Youtube
+  </a>
+</div>
+
+<i>{% blocktrans %}If you face difficulties on account activation kindly contact us on: contact@geekyshows.com{% endblocktrans %}</i>
+
+{% endblock html_body %}
